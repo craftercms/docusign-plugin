@@ -66,9 +66,8 @@ class DefaultFormHandler implements FormHandler {
             envelope
         )
 
-        log.info("Sent email with response:")
-        log.info(envelopeSummary)
+        log.info("Sent email with response: '{}'", envelopeSummary.toString())
 
-        return "/templates/docusign/success.ftl"
+        return "/templates/plugins/org/craftercms/plugin/docusign/success.ftl"
     }
 }
