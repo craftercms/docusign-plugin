@@ -1,6 +1,6 @@
 # CrafterCMS DocuSign Plugin
 
-A DocuSign plugin to sign contract via email using JWT token.
+A DocuSign plugin which uses [eSignature REST API](https://developers.docusign.com/docs/esign-rest-api/esign101/) to sign contract via email using [JWT token](https://developers.docusign.com/platform/auth/jwt/jwt-get-token/).
 
 # Installation
 
@@ -48,17 +48,17 @@ A DocuSign plugin to sign contract via email using JWT token.
 
 where:
 
-* basePath:
-* authDomain:
-* accountId:
-* userId:
-* integrationKey:
-* scopes:
-* ccEmail:
-* ccName:
-* status:
-* publicKey:
-* privateKey:
+* basePath: DocuSign API base path
+* authDomain: DocuSign authentication domain
+* accountId: DocuSign Account ID
+* userId: DocuSign User ID
+* integrationKey: DocuSign Integration Key
+* scopes: list of scrope to consent
+* ccEmail: Email address of CC
+* ccName: Name of CC
+* status: Request that the envelope be sent by setting |status| to "sent". To request that the envelope be created as a draft, set to "created"
+* publicKey: The public key of your DocuSign application
+* privateKey: The private key of your DocuSign application
 
 Values starting with `${enc:...}` are encrypted text using [CrafterCMS Encryption Tool](https://docs.craftercms.org/en/4.0/system-administrators/activities/authoring/main-menu-encryption-tool.html#encryption-tool)
 
