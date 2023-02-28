@@ -1,0 +1,53 @@
+# This file describes a plugin for use in CrafterCMS
+
+# The version of the format for this file
+descriptorVersion: 2
+
+# Describe the plugin
+plugin:
+  type: site
+  id: org.craftercms.plugin.docusign
+  name: DocuSign
+  tags:
+    - docusign
+  version:
+    major: 1
+    minor: 0
+    patch: 0
+  description: A plugin that allows you use docusign API to send signing contract via email
+  documentation: "https://raw.githubusercontent.com/phuongnq/craftercms-plugin-docusign/main/README.md"
+  website:
+    name: DocuSign
+    url: https://github.com/phuongnq/craftercms-plugin-docusign
+  media:
+    screenshots:
+      - title: CrafterCMS
+        description: CrafterCMS Plugin for DocuSign
+        url: "https://raw.githubusercontent.com/phuongnq/craftercms-plugin-docusign/main/.crafter/logo.webp"
+  developer:
+    company:
+      name: Phil Nguyen
+      email: phil.nguyen@craftercms.com
+      url: https://github.com/phuongnq
+  build:
+    id: 8470f83e-d571-4c98-840b-ab8248f85af8
+    date: 2023-02-28T00:00:00Z
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  crafterCmsVersions:
+    - major: 4
+      minor: 0
+      patch: 0
+    - major: 4
+      minor: 0
+      patch: 1
+    - major: 4
+      minor: 0
+      patch: 2
+    - major: 4
+      minor: 0
+      patch: 3
+  crafterCmsEditions:
+    - community
+    - enterprise
