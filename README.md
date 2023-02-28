@@ -87,3 +87,16 @@ An email with title *Please sign this document* will be sent to SIGNER_EMAIL_ADD
 
 5. Alternatively, create a sample form to request the same
 
+* Create a form with ``
+
+![docusign_form](/docusign_form.png)
+
+* Create a page with `` content type
+
+![docusign_page](/docusign_page.png)
+
+* Sample page available and you can input signer email and name to sign contract via email
+
+![sample_page](/sample_page.png)
+
+A sample project is available [here](https://github.com/phuongnq/craftercms-docusign-sample-project)

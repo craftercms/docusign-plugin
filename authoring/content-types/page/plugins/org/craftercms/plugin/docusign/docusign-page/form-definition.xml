@@ -9,7 +9,7 @@
 	<properties>		<property>
 			<name>display-template</name>
 			<label>Display Template</label>
-			<value>/templates/web/docusign-page.ftl</value>
+			<value>/templates/plugins/org/craftercms/plugin/docusign/docusign-page.ftl</value>
 			<type>template</type>
 		</property>
 		<property>
