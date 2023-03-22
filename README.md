@@ -29,7 +29,6 @@ A DocuSign plugin which uses [eSignature REST API](https://developers.docusign.c
 
 ```xml
 <site>
-    <version>4.0.1</version>
     <docusign>
         <basePath>https://demo.docusign.net/restapi</basePath>
         <authDomain>account-d.docusign.com</authDomain>
