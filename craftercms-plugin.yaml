@@ -25,8 +25,8 @@ plugin:
         description: CrafterCMS Plugin for DocuSign
         url: "https://raw.githubusercontent.com/craftercms/docusign-plugin/main/.crafter/logo.webp"
   developer:
-    company: CrafterCMS
-      name: Phil Nguyen
+    company:
+      name: CrafterCMS
       email: info@craftercms.com
       url: https://craftercms.com
   build:
