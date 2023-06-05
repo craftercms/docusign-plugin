@@ -6,7 +6,23 @@ A DocuSign plugin which uses [eSignature REST API](https://developers.docusign.c
 
 1. Install the plugin via Studio's Plugin Management UI under `Site Tools` > `Plugin Management`
 
-   OR You can also install this plugin by cloning this repository and using the Studio API.
+    You will need the following information:
+
+    * basePath: DocuSign API base path. Example: `https://demo.docusign.net/restapi`
+    * authDomain: DocuSign authentication domain. Example: `account-d.docusign.com`
+    * accountId: DocuSign Account ID. Example: `${enc:CCE-V1#heFjVbXwK...}`
+    * userId: DocuSign User ID. Example: `${enc:CCE-V1#2FO+0dhgP...}`
+    * integrationKey: DocuSign Integration Key. Example: `${enc:CCE-V1#sYOpw...}`
+    * scopes: list of scrope to consent. Example: `signature, impersonation`
+    * ccEmail: Email address of CC. Example: `email@example.com`
+    * ccName: Name of CC. Example: `Foo Bar`
+    * status: Request that the envelope be sent by setting |status| to "sent". To request that the envelope be created as a draft, set to "created". Example: `sent`
+    * publicKey: The public key of your DocuSign application. Example: `${enc:CCE-V1#tMoh1Qs...}`
+    * privateKey: The private key of your DocuSign application. Example: `${enc:CCE-V1#mkt3jYPh...}`
+
+    *Note: Values starting with `${enc:...}` are encrypted text using [CrafterCMS Encryption Tool](https://docs.craftercms.org/en/4.0/system-administrators/activities/authoring/main-menu-encryption-tool.html#encryption-tool)*
+
+    OR You can also install this plugin by cloning this repository and using the Studio API.
 
     1a. Create a Studio JWT Token.
 
@@ -25,41 +41,20 @@ A DocuSign plugin which uses [eSignature REST API](https://developers.docusign.c
 
     OR You can aslo install this plugin by cloning this repository and using [Crafter CLI Commands](https://docs.craftercms.org/en/4.0/new-ia/reference/devcontentops-toolkit/copy-plugin.html)
 
-2. Add your DocuSign credentials and account information to `site-config.xml`:
-
-```xml
-<site>
-    <docusign>
-        <basePath>https://demo.docusign.net/restapi</basePath>
-        <authDomain>account-d.docusign.com</authDomain>
-        <accountId>${enc:CCE-V1#heFjVbXwK...}</accountId>
-        <userId>${enc:CCE-V1#2FO+0dhgP...}</userId>
-        <integrationKey>${enc:CCE-V1#sYOpw...}</integrationKey>
-        <scopes>signature, impersonation</scopes>
-        <ccEmail>CC_EMAIL_ADDRESS</ccEmail>
-        <ccName>CC_NAME</ccName>
-        <status>sent</status>
-        <publicKey>${enc:CCE-V1#tMoh1Qs...}</publicKey>
-        <privateKey>${enc:CCE-V1#mkt3jYPh...}</privateKey>
-    </docusign>
-</site>
-```
-
-where:
-
-* basePath: DocuSign API base path
-* authDomain: DocuSign authentication domain
-* accountId: DocuSign Account ID
-* userId: DocuSign User ID
-* integrationKey: DocuSign Integration Key
-* scopes: list of scrope to consent
-* ccEmail: Email address of CC
-* ccName: Name of CC
-* status: Request that the envelope be sent by setting |status| to "sent". To request that the envelope be created as a draft, set to "created"
-* publicKey: The public key of your DocuSign application
-* privateKey: The private key of your DocuSign application
-
-Values starting with `${enc:...}` are encrypted text using [CrafterCMS Encryption Tool](https://docs.craftercms.org/en/4.0/system-administrators/activities/authoring/main-menu-encryption-tool.html#encryption-tool)
+    ```bash
+    ./crafter-cli copy-plugin -e local -s PROJECT_ID --path /PLUGIN_PATH/docusign-plugin \
+        --param basePath='https://demo.docusign.net/restapi' \
+        --param authDomain='account-d.docusign.com' \
+        --param accountId='${enc:CCE-V1#2IoYj...}' \
+        --param userId='${enc:CCE-V1#xMoWy...}' \
+        --param integrationKey='${enc:CCE-V1#zNu3e...}' \
+        --param scopes='signature, impersonation' \
+        --param ccEmail='email@example.com' \
+        --param ccName='Foo Bar' \
+        --param status=sent \
+        --param publicKey='${enc:CCE-V1#ehP7Wf...}' \
+        --param privateKey='${enc:CCE-V1#FS0D...}'
+    ```
 
 3. Request application consent
 
@@ -97,5 +92,3 @@ An email with title *Please sign this document* will be sent to SIGNER_EMAIL_ADD
 * Sample page available and you can input signer email and name to sign contract via email.
 
 ![sample_page](/sample_page.png)
-
-A sample project is available [here](https://github.com/phuongnq/craftercms-docusign-sample-project)
