@@ -13,7 +13,7 @@ plugin:
   version:
     major: 1
     minor: 0
-    patch: 2
+    patch: 3
   description: A plugin that allows the use Docusign APIs to send contracts via email
   documentation: "https://raw.githubusercontent.com/craftercms/docusign-plugin/main/README.md"
   website:
