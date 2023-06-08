@@ -32,12 +32,12 @@ import groovy.util.logging.Slf4j
 @Slf4j
 class DefaultFormHandler implements FormHandler {
 
-    def handle(params, request, siteConfig, siteItemService) {
-        String basePath = siteConfig.getString('docusign.basePath')
-        String privateKey = siteConfig.getString('docusign.privateKey')
-        String integrationKey = siteConfig.getString('docusign.integrationKey')
-        String userId = siteConfig.getString('docusign.userId')
-        List<String> scopes = siteConfig.getList(String.class, 'docusign.scopes')
+    def handle(params, request, pluginConfig, siteItemService) {
+        String basePath = pluginConfig.getString('basePath')
+        String privateKey = pluginConfig.getString('privateKey')
+        String integrationKey = pluginConfig.getString('integrationKey')
+        String userId = pluginConfig.getString('userId')
+        List<String> scopes = pluginConfig.getList(String.class, 'scopes')
         String accessToken = ApiClientHelpers.getOneTimeAccessToken(basePath, privateKey, integrationKey, userId, scopes)
 
         EnvelopesApi envelopesApi = ApiClientHelpers.createEnvelopesApi(basePath, accessToken)
@@ -45,9 +45,9 @@ class DefaultFormHandler implements FormHandler {
         WorkArguments args = new WorkArguments()
         args.signerEmail = params.email
         args.signerName = params.name
-        args.ccEmail = siteConfig.getString('docusign.ccEmail')
-        args.ccName = siteConfig.getString('docusign.ccName')
-        args.status = siteConfig.getString('docusign.status')
+        args.ccEmail = pluginConfig.getString('ccEmail')
+        args.ccName = pluginConfig.getString('ccName')
+        args.status = pluginConfig.getString('status')
 
         EnvelopeDefinition envelope = SigningViaEmailService.makeEnvelope(
             siteItemService,    // CrafterCMS SiteItemService instance
@@ -59,7 +59,7 @@ class DefaultFormHandler implements FormHandler {
             args
         )
 
-        def accountId = siteConfig.getString('docusign.accountId')
+        def accountId = pluginConfig.getString('accountId')
         EnvelopeSummary envelopeSummary = SigningViaEmailService.signingViaEmail(
             envelopesApi,
             accountId,

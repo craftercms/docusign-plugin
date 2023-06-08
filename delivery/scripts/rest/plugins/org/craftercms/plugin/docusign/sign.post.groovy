@@ -57,11 +57,11 @@ if (invalidParams) {
     return result
 }
 
-String basePath = siteConfig.getString('docusign.basePath')
-String privateKey = siteConfig.getString('docusign.privateKey')
-String integrationKey = siteConfig.getString('docusign.integrationKey')
-String userId = siteConfig.getString('docusign.userId')
-List<String> scopes = siteConfig.getList(String.class, 'docusign.scopes')
+String basePath = pluginConfig.getString('basePath')
+String privateKey = pluginConfig.getString('privateKey')
+String integrationKey = pluginConfig.getString('integrationKey')
+String userId = pluginConfig.getString('userId')
+List<String> scopes = pluginConfig.getList(String.class, 'scopes')
 String accessToken = ApiClientHelpers.getOneTimeAccessToken(basePath, privateKey, integrationKey, userId, scopes)
 
 EnvelopesApi envelopesApi = ApiClientHelpers.createEnvelopesApi(basePath, accessToken)
@@ -69,9 +69,9 @@ EnvelopesApi envelopesApi = ApiClientHelpers.createEnvelopesApi(basePath, access
 WorkArguments args = new WorkArguments()
 args.signerEmail = signerEmail
 args.signerName = signerName
-args.ccEmail = siteConfig.getString('docusign.ccEmail')
-args.ccName = siteConfig.getString('docusign.ccName')
-args.status = siteConfig.getString('docusign.status')
+args.ccEmail = pluginConfig.getString('ccEmail')
+args.ccName = pluginConfig.getString('ccName')
+args.status = pluginConfig.getString('status')
 
 EnvelopeDefinition envelope = SigningViaEmailService.makeEnvelope(
     siteItemService,    // CrafterCMS SiteItemService instance
@@ -83,7 +83,7 @@ EnvelopeDefinition envelope = SigningViaEmailService.makeEnvelope(
     args
 )
 
-def accountId = siteConfig.getString('docusign.accountId')
+def accountId = pluginConfig.getString('accountId')
 EnvelopeSummary envelopeSummary = SigningViaEmailService.signingViaEmail(
     envelopesApi,
     accountId,
