@@ -73,7 +73,7 @@ plugin:
     - label: Scopes
       name: scopes
       description: List of scrope to consent
-    - lable: CC email
+    - label: CC email
       name: ccEmail
       description: Email address of CC
     - label: CC name
