@@ -13,7 +13,7 @@ plugin:
   version:
     major: 1
     minor: 0
-    patch: 2
+    patch: 4
   description: A plugin that allows the use Docusign APIs to send contracts via email
   documentation: "https://raw.githubusercontent.com/craftercms/docusign-plugin/main/README.md"
   website:
@@ -66,3 +66,37 @@ plugin:
   crafterCmsEditions:
     - community
     - enterprise
+  parameters:
+    - label: Base path
+      name: basePath
+      description: DocuSign API base path.
+    - label: Authentication domain
+      name: authDomain
+      description: DocuSign authentication domain
+    - label: Account Id
+      name: accountId
+      description: DocuSign Account ID
+    - label: User Id
+      name: userId
+      description: DocuSign User ID
+    - label: Integration key
+      name: integrationKey
+      description: DocuSign Integration Key
+    - label: Scopes
+      name: scopes
+      description: List of scrope to consent
+    - label: CC email
+      name: ccEmail
+      description: Email address of CC
+    - label: CC name
+      name: ccName
+      description: Name of CC
+    - label: Status
+      name: status
+      description: Request that the envelope be sent by setting |status| to "sent". To request that the envelope be created as a draft, set to "created"
+    - label: Public key
+      name: publicKey
+      description: The public key of your DocuSign application
+    - label: Private key
+      name: privateKey
+      description: The private key of your DocuSign application
